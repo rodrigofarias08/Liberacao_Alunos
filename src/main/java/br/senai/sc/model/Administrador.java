@@ -1,9 +1,11 @@
 package br.senai.sc.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 
 @Entity
-public class Administrador extends User{
+public class Administrador extends User implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	public Administrador() {

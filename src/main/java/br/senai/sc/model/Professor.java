@@ -1,9 +1,11 @@
 package br.senai.sc.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 
 @Entity
-public class Professor extends User {
+public class Professor extends User implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	public Professor() {
@@ -13,5 +15,7 @@ public class Professor extends User {
 	public Professor(Integer id, String nome, String email, String senha, boolean ativo) {
 		super(id, nome, email, senha, ativo);
 	}
+	
+	
 
 }

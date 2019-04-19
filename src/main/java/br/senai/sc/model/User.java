@@ -1,6 +1,7 @@
 package br.senai.sc.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,7 +16,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -25,7 +26,8 @@ public class User implements Serializable{
 	private String nome;
 	private String email;
 	private String senha;
-	private Date create_time;
+	
+	private Date create_time = Calendar.getInstance().getTime();
 	private boolean ativo;
 	
 	@ElementCollection
@@ -90,11 +92,6 @@ public class User implements Serializable{
 
 	public Date getCreate_time() {
 		return create_time;
-	}
-
-
-	public void setCreate_time(Date create_time) {
-		this.create_time = create_time;
 	}
 
 
