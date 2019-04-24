@@ -1,4 +1,4 @@
-package br.senai.sc.model;
+package br.senai.sc.domain;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -47,6 +47,15 @@ public class User implements Serializable{
 		this.email = email;
 		this.senha = senha;
 		this.ativo = ativo;
+	}
+
+	public Set<String> getTelefones() {
+		return telefones;
+	}
+
+
+	public void setTelefones(Set<String> telefones) {
+		this.telefones = telefones;
 	}
 
 

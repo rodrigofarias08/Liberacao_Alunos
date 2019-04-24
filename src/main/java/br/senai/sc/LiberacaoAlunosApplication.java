@@ -8,12 +8,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
 
-import br.senai.sc.model.Administrador;
-import br.senai.sc.model.Guarda;
-import br.senai.sc.model.Professor;
-import br.senai.sc.repositories.AdministradorRepository;
-import br.senai.sc.repositories.GuardaRepository;
-import br.senai.sc.repositories.ProfessorRepository;
+import br.senai.sc.domain.Administrador;
+import br.senai.sc.domain.Guarda;
+import br.senai.sc.domain.Professor;
 import br.senai.sc.repositories.UserRepository;
 
 @SpringBootApplication
@@ -22,15 +19,6 @@ public class LiberacaoAlunosApplication implements CommandLineRunner{
 	public static void main(String[] args) {
 		SpringApplication.run(LiberacaoAlunosApplication.class, args);
 	}
-	
-	//@Autowired
-	//private AdministradorRepository adminR;
-	
-	//@Autowired
-	//private GuardaRepository guardaR;
-	
-	//@Autowired
-	//private ProfessorRepository profR;
 	
 	@Autowired
 	private UserRepository userR;
@@ -42,11 +30,13 @@ public class LiberacaoAlunosApplication implements CommandLineRunner{
 		byte[] arrayPic = new byte[(int)zed.contentLength()];//Não tenho certeza o porque disso tudo
 		zed.getInputStream().read(arrayPic);
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");//date format para data e hora.
+		//SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");//date format para data e hora.
 
 		Administrador admin1 = new Administrador(null, "Admin João da Silva", "joao@gmail.com", "12345", true);
 		Administrador admin2 = new Administrador(null, "Admin Manoel Heleno", "manuel@gmail.com", "12345", true);
 		Administrador admin3 = new Administrador(null, "Admin Helena Filha", "helena@gmail.com", "12345", false);
+		
+		admin1.getTelefones().add("(48)999887766");
 		
 
 		Guarda guarda1 = new Guarda(null, "Guarda João da Silva", "joao@gmail.com", "12345", true);

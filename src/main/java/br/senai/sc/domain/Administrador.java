@@ -1,4 +1,4 @@
-package br.senai.sc.model;
+package br.senai.sc.domain;
 
 import java.io.Serializable;
 
