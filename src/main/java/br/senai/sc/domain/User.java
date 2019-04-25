@@ -27,11 +27,11 @@ public class User implements Serializable{
 	private String email;
 	private String senha;
 	
-	private Date create_time = Calendar.getInstance().getTime();
+	private Date create_time;
 	private boolean ativo;
 	
 	@ElementCollection
-	@CollectionTable(name="TELEFONES")
+	@CollectionTable(name="TELEFONE_USER")
 	private Set<String> telefones = new HashSet<>();
 	
 	
@@ -47,6 +47,7 @@ public class User implements Serializable{
 		this.email = email;
 		this.senha = senha;
 		this.ativo = ativo;
+		this.create_time = Calendar.getInstance().getTime();
 	}
 
 	public Set<String> getTelefones() {
@@ -112,7 +113,8 @@ public class User implements Serializable{
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
-
+	
+	
 
 	@Override
 	public int hashCode() {
