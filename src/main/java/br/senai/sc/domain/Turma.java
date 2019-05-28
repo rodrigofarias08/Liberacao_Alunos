@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.senai.sc.domain.enums.Periodo;
 
 @Entity
@@ -27,6 +29,7 @@ public class Turma implements Serializable {
 	private String ano_semestre;
 	
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "TURMA_ALUNO",
 			joinColumns = @JoinColumn(name="turma_id"),

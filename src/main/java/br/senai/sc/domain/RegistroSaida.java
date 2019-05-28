@@ -15,6 +15,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class RegistroSaida implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -38,14 +40,17 @@ public class RegistroSaida implements Serializable{
 	
 	private Date create_time;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "aluno_id")
 	private Aluno aluno;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "administrador_id")
 	private Administrador administrador;
-	
+
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "PROFESSOR_NOTIFICADO_SAIDA",
 				joinColumns = @JoinColumn(name = "registro_saida_id"),

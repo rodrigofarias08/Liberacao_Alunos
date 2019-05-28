@@ -48,6 +48,9 @@ public class Aluno implements Serializable{
 	@CollectionTable(name="TELEFONE_ALUNO")
 	private Set<String> telefones = new HashSet<>();
 	
+	@OneToMany(mappedBy = "aluno")
+	private List<Responsavel> responsaveis = new ArrayList<Responsavel>();
+	
 	public Aluno() {
 		
 	}
@@ -154,6 +157,22 @@ public class Aluno implements Serializable{
 
 	public void setTelefones(Set<String> telefones) {
 		this.telefones = telefones;
+	}
+	
+	
+
+
+
+
+	public List<Responsavel> getResponsaveis() {
+		return responsaveis;
+	}
+
+
+
+
+	public void setResponsaveis(List<Responsavel> responsaveis) {
+		this.responsaveis = responsaveis;
 	}
 
 

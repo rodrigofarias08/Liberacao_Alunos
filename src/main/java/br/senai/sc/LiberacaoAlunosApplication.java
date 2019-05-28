@@ -14,11 +14,13 @@ import br.senai.sc.domain.Guarda;
 import br.senai.sc.domain.Professor;
 import br.senai.sc.domain.RegistroEntrada;
 import br.senai.sc.domain.RegistroSaida;
+import br.senai.sc.domain.Responsavel;
 import br.senai.sc.domain.Turma;
 import br.senai.sc.domain.enums.Periodo;
 import br.senai.sc.repositories.AlunoRepository;
 import br.senai.sc.repositories.RegistroEntradaRepository;
 import br.senai.sc.repositories.RegistroSaidaRepository;
+import br.senai.sc.repositories.ResponsavelRepository;
 import br.senai.sc.repositories.TurmaRepository;
 import br.senai.sc.repositories.UserRepository;
 
@@ -42,6 +44,9 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 
 	@Autowired
 	private TurmaRepository turmaR;
+	
+	@Autowired
+	private ResponsavelRepository responsavelR;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -92,6 +97,10 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		aluno.getRegistros_entradas().add(regE1);
 		prof1.getRegistros_entradas().add(regE1);
 		regE1.getProfessores().add(prof1);
+		
+		Responsavel respon1 = new Responsavel(null, "pai", "pai@hotmail.com", aluno);
+		respon1.getTelefones().add("999999999");
+		aluno.getResponsaveis().add(respon1);
 
 		userR.save(admin1);
 		userR.save(admin2);
@@ -111,6 +120,8 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 
 		regEntradaR.save(regE1);
 		regSaidaR.save(regs1);
+		
+		responsavelR.save(respon1);
 	}
 
 }
