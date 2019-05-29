@@ -7,13 +7,17 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Administrador extends User implements Serializable{
 	private static final long serialVersionUID = 1L;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "administrador")
 	private List<RegistroSaida>registros_saidas = new ArrayList<RegistroSaida>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "administrador")
 	private List<RegistroEntrada> registros_entradas = new ArrayList<RegistroEntrada>();
 	
