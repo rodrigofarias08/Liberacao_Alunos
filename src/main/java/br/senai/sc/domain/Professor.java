@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Professor extends User implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -19,9 +21,11 @@ public class Professor extends User implements Serializable{
 		super(id, nome, email, senha, ativo);
 	}
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "professores")
 	private List<RegistroSaida>registros_saidas = new ArrayList<RegistroSaida>();
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "professores")
 	private List<RegistroEntrada> registros_entradas = new ArrayList<RegistroEntrada>();
 

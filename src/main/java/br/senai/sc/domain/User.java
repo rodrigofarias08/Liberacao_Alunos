@@ -15,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User implements Serializable{
@@ -28,8 +30,11 @@ public class User implements Serializable{
 	private String senha;
 	
 	private Date create_time;
+	
+	@JsonIgnore
 	private boolean ativo;
 	
+	@JsonIgnore
 	@ElementCollection
 	@CollectionTable(name="TELEFONE_USER")
 	private Set<String> telefones = new HashSet<>();

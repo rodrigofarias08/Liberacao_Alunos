@@ -17,7 +17,10 @@ import br.senai.sc.domain.RegistroSaida;
 import br.senai.sc.domain.Responsavel;
 import br.senai.sc.domain.Turma;
 import br.senai.sc.domain.enums.Periodo;
+import br.senai.sc.repositories.AdministradorRepository;
 import br.senai.sc.repositories.AlunoRepository;
+import br.senai.sc.repositories.GuardaRepository;
+import br.senai.sc.repositories.ProfessorRepository;
 import br.senai.sc.repositories.RegistroEntradaRepository;
 import br.senai.sc.repositories.RegistroSaidaRepository;
 import br.senai.sc.repositories.ResponsavelRepository;
@@ -33,6 +36,16 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 
 	@Autowired
 	private UserRepository userR;
+	
+	@Autowired
+	private ProfessorRepository profR;
+	
+	@Autowired
+	private AdministradorRepository adminR;
+	
+	@Autowired
+	private GuardaRepository guardaR;
+	
 	@Autowired
 	private RegistroSaidaRepository regSaidaR;
 
@@ -102,17 +115,17 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		respon1.getTelefones().add("999999999");
 		aluno.getResponsaveis().add(respon1);
 
-		userR.save(admin1);
-		userR.save(admin2);
-		userR.save(admin3);
+		adminR.save(admin1);
+		adminR.save(admin2);
+		adminR.save(admin3);
 
-		userR.save(guarda1);
-		userR.save(guarda2);
-		userR.save(guarda3);
+		guardaR.save(guarda1);
+		guardaR.save(guarda2);
+		guardaR.save(guarda3);
 
-		userR.save(prof1);
-		userR.save(prof2);
-		userR.save(prof3);
+		profR.save(prof1);
+		profR.save(prof2);
+		profR.save(prof3);
 
 		alunoR.save(aluno);
 		turmaR.save(turma1);

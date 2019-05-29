@@ -11,31 +11,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.senai.sc.domain.User;
-import br.senai.sc.services.UserService;
+import br.senai.sc.domain.Professor;
+import br.senai.sc.services.ProfessorService;
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/users/professores")
+public class ProfessorResource {
 
 	@Autowired
-	private UserService serv;
+	private ProfessorService serv;
 	
 	@CrossOrigin
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<User>> ListarTodos(){
-		List<User> lista = serv.findAll();
+	public ResponseEntity<List<Professor>> ListarTodos(){
+		List<Professor> lista = serv.findAll();
 		return ResponseEntity.ok(lista);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<User> buscarPorId(@PathVariable Integer id){
-		User obj = serv.findById(id);
+	public ResponseEntity<Professor> buscarPorId(@PathVariable Integer id){
+		Professor obj = serv.findById(id);
 		return ResponseEntity.ok(obj);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@RequestBody User obj){
+	public ResponseEntity<Void> insert(@RequestBody Professor obj){
 		serv.insert(obj);
 		return ResponseEntity.noContent().build();
 	}
@@ -47,7 +47,7 @@ public class UserResource {
 	}
 	
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Void> update(@RequestBody User obj, @PathVariable Integer id){
+	public ResponseEntity<Void> update(@RequestBody Professor obj, @PathVariable Integer id){
 		obj.setId(id);
 		serv.update(obj);
 		return ResponseEntity.noContent().build();
