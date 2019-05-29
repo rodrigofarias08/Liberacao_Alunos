@@ -18,6 +18,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Aluno implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -27,27 +29,31 @@ public class Aluno implements Serializable{
 	private Integer id;
 	private String nome;
 	private String cpf;
+	@JsonIgnore
 	@Lob
 	private byte[] foto;
 	
 	private Date create_time;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "aluno")
 	private List<RegistroSaida> registros_saidas = new ArrayList<RegistroSaida>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "aluno")
 	private List<RegistroEntrada> registros_entradas = new ArrayList<RegistroEntrada>();
 	
 	
-	
+	@JsonIgnore
 	@ManyToMany(mappedBy="alunos")
 	private List<Turma> turmas = new ArrayList<Turma>();
 	
-	
+	@JsonIgnore
 	@ElementCollection
 	@CollectionTable(name="TELEFONE_ALUNO")
 	private Set<String> telefones = new HashSet<>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "aluno")
 	private List<Responsavel> responsaveis = new ArrayList<Responsavel>();
 	
