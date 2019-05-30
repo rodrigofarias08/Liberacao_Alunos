@@ -30,7 +30,7 @@ public class User implements Serializable{
 	private String senha;
 	private String telefone;
 	
-	private Date create_time;
+	private Date create_time = Calendar.getInstance().getTime();
 	
 	@JsonIgnore
 	private boolean ativo;
@@ -53,7 +53,6 @@ public class User implements Serializable{
 		this.senha = senha;
 		this.telefone = telefone;
 		this.ativo = ativo;
-		this.create_time = Calendar.getInstance().getTime();
 	}
 
 //	public Set<String> getTelefones() {
