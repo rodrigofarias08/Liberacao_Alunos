@@ -25,7 +25,6 @@ import br.senai.sc.repositories.RegistroEntradaRepository;
 import br.senai.sc.repositories.RegistroSaidaRepository;
 import br.senai.sc.repositories.ResponsavelRepository;
 import br.senai.sc.repositories.TurmaRepository;
-import br.senai.sc.repositories.UserRepository;
 
 @SpringBootApplication
 public class LiberacaoAlunosApplication implements CommandLineRunner {
@@ -34,8 +33,6 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		SpringApplication.run(LiberacaoAlunosApplication.class, args);
 	}
 
-	@Autowired
-	private UserRepository userR;
 	
 	@Autowired
 	private ProfessorRepository profR;
@@ -71,19 +68,19 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");// date format para data e hora.
 		SimpleDateFormat stf = new SimpleDateFormat("hh:mm");// date format para data e hora.
 
-		Administrador admin1 = new Administrador(null, "Admin João da Silva", "joao@gmail.com", "12345", true);
-		Administrador admin2 = new Administrador(null, "Admin Manoel Heleno", "manuel@gmail.com", "12345", true);
-		Administrador admin3 = new Administrador(null, "Admin Helena Filha", "helena@gmail.com", "12345", false);
+		Administrador admin1 = new Administrador(null, "Admin João da Silva", "joao@gmail.com", "12345", "999887766", true);
+		Administrador admin2 = new Administrador(null, "Admin Manoel Heleno", "manuel@gmail.com", "12345", "999887766", true);
+		Administrador admin3 = new Administrador(null, "Admin Helena Filha", "helena@gmail.com", "12345", "999887766", false);
 
-		admin1.getTelefones().add("(48)999887766");
+//		admin1.getTelefones().add("(48)999887766");
 
-		Guarda guarda1 = new Guarda(null, "Guarda João da Silva", "joao@gmail.com", "12345", true);
-		Guarda guarda2 = new Guarda(null, "Guarda Manoel Heleno", "manuel@gmail.com", "12345", true);
-		Guarda guarda3 = new Guarda(null, "Guarda Helena Filha", "helena@gmail.com", "12345", false);
+		Guarda guarda1 = new Guarda(null, "Guarda João da Silva", "joao@gmail.com", "12345", "999887766", true);
+		Guarda guarda2 = new Guarda(null, "Guarda Manoel Heleno", "manuel@gmail.com", "12345", "999887766", true);
+		Guarda guarda3 = new Guarda(null, "Guarda Helena Filha", "helena@gmail.com", "12345", "999887766", false);
 
-		Professor prof1 = new Professor(null, "Professor João da Silva", "joao@gmail.com", "12345", true);
-		Professor prof2 = new Professor(null, "Professor Manoel Heleno", "manuel@gmail.com", "12345", true);
-		Professor prof3 = new Professor(null, "Professor Helena Filha", "helena@gmail.com", "12345", false);
+		Professor prof1 = new Professor(null, "Professor João da Silva", "joao@gmail.com", "12345", "999887766", true);
+		Professor prof2 = new Professor(null, "Professor Manoel Heleno", "manuel@gmail.com", "12345", "999887766", true);
+		Professor prof3 = new Professor(null, "Professor Helena Filha", "helena@gmail.com", "12345", "999887766", false);
 		
 		
 		Turma turma1 = new Turma(null, "Desenvolvimento de Sistemas","3o","2019/01",Periodo.MATUTINO);

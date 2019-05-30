@@ -24,9 +24,10 @@ public class Administrador extends User implements Serializable{
 	public Administrador() {
 		super();
 	}
-
-	public Administrador(Integer id, String nome, String email, String senha, boolean ativo) {
-		super(id, nome, email, senha, ativo);
+	
+	public Administrador(Integer id, String nome, String email, String senha, String telefone, boolean ativo) {
+		super(id, nome, email, senha, telefone, ativo);
+		// TODO Auto-generated constructor stub
 	}
 
 	public List<RegistroSaida> getRegistros_saidas() {

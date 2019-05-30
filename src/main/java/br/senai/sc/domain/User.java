@@ -3,11 +3,11 @@ package br.senai.sc.domain;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
+//import java.util.HashSet;
+//import java.util.Set;
+//
+//import javax.persistence.CollectionTable;
+//import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,45 +28,57 @@ public class User implements Serializable{
 	private String nome;
 	private String email;
 	private String senha;
+	private String telefone;
 	
 	private Date create_time;
 	
 	@JsonIgnore
 	private boolean ativo;
 	
-	@JsonIgnore
-	@ElementCollection
-	@CollectionTable(name="TELEFONE_USER")
-	private Set<String> telefones = new HashSet<>();
+//	@JsonIgnore
+//	@ElementCollection
+//	@CollectionTable(name="TELEFONE_USER")
+//	private Set<String> telefones = new HashSet<>();
 	
 	
 	public User() {
 		super();
 	}
 
-
-	public User(Integer id, String nome, String email, String senha, boolean ativo) {
+	public User(Integer id, String nome, String email, String senha, String telefone, boolean ativo) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+		this.telefone = telefone;
 		this.ativo = ativo;
 		this.create_time = Calendar.getInstance().getTime();
 	}
 
-	public Set<String> getTelefones() {
-		return telefones;
-	}
+//	public Set<String> getTelefones() {
+//		return telefones;
+//	}
+//
+//
+//	public void setTelefones(Set<String> telefones) {
+//		this.telefones = telefones;
+//	}
 
-
-	public void setTelefones(Set<String> telefones) {
-		this.telefones = telefones;
-	}
-
-
+	
+	
 	public Integer getId() {
 		return id;
+	}
+
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 

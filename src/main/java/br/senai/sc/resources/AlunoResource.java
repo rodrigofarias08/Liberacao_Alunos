@@ -27,25 +27,29 @@ public class AlunoResource {
 		List<Aluno> lista = serv.findAll();
 		return ResponseEntity.ok(lista);
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Aluno> buscarPorId(@PathVariable Integer id){
 		Aluno obj = serv.findById(id);
 		return ResponseEntity.ok(obj);
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody Aluno obj){
 		serv.insert(obj);
 		return ResponseEntity.noContent().build();
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deletar(@PathVariable Integer id){
 		serv.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody Aluno obj, @PathVariable Integer id){
 		obj.setId(id);

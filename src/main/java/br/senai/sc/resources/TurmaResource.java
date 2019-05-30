@@ -34,6 +34,7 @@ public class TurmaResource {
 		return ResponseEntity.ok(obj);
 	}
 	
+	@CrossOrigin
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody Turma obj){
 		serv.insert(obj);

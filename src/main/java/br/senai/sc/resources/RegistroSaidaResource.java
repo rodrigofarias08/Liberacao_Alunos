@@ -27,25 +27,29 @@ public class RegistroSaidaResource {
 		List<RegistroSaida> lista = serv.findAll();
 		return ResponseEntity.ok(lista);
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<RegistroSaida> buscarPorId(@PathVariable Integer id){
 		RegistroSaida obj = serv.findById(id);
 		return ResponseEntity.ok(obj);
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody RegistroSaida obj){
 		serv.insert(obj);
 		return ResponseEntity.noContent().build();
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deletar(@PathVariable Integer id){
 		serv.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody RegistroSaida obj, @PathVariable Integer id){
 		obj.setId(id);

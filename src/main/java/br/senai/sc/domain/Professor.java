@@ -16,11 +16,12 @@ public class Professor extends User implements Serializable{
 	public Professor() {
 		super();
 	}
-
-	public Professor(Integer id, String nome, String email, String senha, boolean ativo) {
-		super(id, nome, email, senha, ativo);
-	}
 	
+	public Professor(Integer id, String nome, String email, String senha, String telefone, boolean ativo) {
+		super(id, nome, email, senha, telefone, ativo);
+	}
+
+
 	@JsonIgnore
 	@ManyToMany(mappedBy = "professores")
 	private List<RegistroSaida>registros_saidas = new ArrayList<RegistroSaida>();

@@ -27,25 +27,29 @@ public class ResponsavelResource {
 		List<Responsavel> lista = serv.findAll();
 		return ResponseEntity.ok(lista);
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Responsavel> buscarPorId(@PathVariable Integer id){
 		Responsavel obj = serv.findById(id);
 		return ResponseEntity.ok(obj);
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody Responsavel obj){
 		serv.insert(obj);
 		return ResponseEntity.noContent().build();
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deletar(@PathVariable Integer id){
 		serv.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	
+
+	@CrossOrigin
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody Responsavel obj, @PathVariable Integer id){
 		obj.setId(id);
