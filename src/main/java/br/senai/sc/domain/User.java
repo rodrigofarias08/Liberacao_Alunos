@@ -3,12 +3,19 @@ package br.senai.sc.domain;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 //import java.util.HashSet;
 //import java.util.Set;
 //
 //import javax.persistence.CollectionTable;
 //import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +23,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.senai.sc.domain.enums.Perfil;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -27,8 +36,8 @@ public class User implements Serializable{
 	private Integer id;
 	private String nome;
 	private String email;
+	@JsonIgnore
 	private String senha;
-	private String telefone;
 	
 	private Date create_time = Calendar.getInstance().getTime();
 	
@@ -39,10 +48,15 @@ public class User implements Serializable{
 //	@ElementCollection
 //	@CollectionTable(name="TELEFONE_USER")
 //	private Set<String> telefones = new HashSet<>();
+	private String telefone;
+	
+	@ElementCollection(fetch=FetchType.EAGER)
+	@CollectionTable(name="PERFIS")
+	private Set<Integer> perfis = new HashSet<>();
 	
 	
 	public User() {
-		super();
+		addPerfil(Perfil.GUARDA);
 	}
 
 	public User(Integer id, String nome, String email, String senha, String telefone, boolean ativo) {
@@ -53,6 +67,7 @@ public class User implements Serializable{
 		this.senha = senha;
 		this.telefone = telefone;
 		this.ativo = ativo;
+		addPerfil(Perfil.GUARDA);
 	}
 
 //	public Set<String> getTelefones() {
@@ -63,8 +78,14 @@ public class User implements Serializable{
 //	public void setTelefones(Set<String> telefones) {
 //		this.telefones = telefones;
 //	}
-
 	
+	public Set<Perfil> getPerfis() {
+		return perfis.stream().map(p -> Perfil.toEnum(p)).collect(Collectors.toSet());
+	}
+	
+	public void addPerfil(Perfil perfil) {
+		perfis.add(perfil.getCodigo());
+	}
 	
 	public Integer getId() {
 		return id;

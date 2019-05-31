@@ -16,6 +16,8 @@ import br.senai.sc.domain.RegistroEntrada;
 import br.senai.sc.domain.RegistroSaida;
 import br.senai.sc.domain.Responsavel;
 import br.senai.sc.domain.Turma;
+import br.senai.sc.domain.User;
+import br.senai.sc.domain.enums.Perfil;
 import br.senai.sc.domain.enums.Periodo;
 import br.senai.sc.repositories.AdministradorRepository;
 import br.senai.sc.repositories.AlunoRepository;
@@ -25,6 +27,7 @@ import br.senai.sc.repositories.RegistroEntradaRepository;
 import br.senai.sc.repositories.RegistroSaidaRepository;
 import br.senai.sc.repositories.ResponsavelRepository;
 import br.senai.sc.repositories.TurmaRepository;
+import br.senai.sc.repositories.UserRepository;
 
 @SpringBootApplication
 public class LiberacaoAlunosApplication implements CommandLineRunner {
@@ -33,6 +36,8 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		SpringApplication.run(LiberacaoAlunosApplication.class, args);
 	}
 
+	@Autowired
+	private UserRepository userR;
 	
 	@Autowired
 	private ProfessorRepository profR;
@@ -68,10 +73,17 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");// date format para data e hora.
 		SimpleDateFormat stf = new SimpleDateFormat("hh:mm");// date format para data e hora.
 
+		User user1 = new User(null, "teste", "testando", "123", "995544", true);
+		user1.addPerfil(Perfil.ADMINISTRADOR);
+		
 		Administrador admin1 = new Administrador(null, "Admin João da Silva", "joao@gmail.com", "12345", "999887766", true);
 		Administrador admin2 = new Administrador(null, "Admin Manoel Heleno", "manuel@gmail.com", "12345", "999887766", true);
 		Administrador admin3 = new Administrador(null, "Admin Helena Filha", "helena@gmail.com", "12345", "999887766", false);
-
+		admin1.addPerfil(Perfil.ADMINISTRADOR);
+		admin2.addPerfil(Perfil.ADMINISTRADOR);
+		admin3.addPerfil(Perfil.ADMINISTRADOR);
+		
+		
 //		admin1.getTelefones().add("(48)999887766");
 
 		Guarda guarda1 = new Guarda(null, "Guarda João da Silva", "joao@gmail.com", "12345", "999887766", true);
@@ -112,6 +124,8 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		respon1.getTelefones().add("999999999");
 		aluno.getResponsaveis().add(respon1);
 
+		userR.save(user1);
+		
 		adminR.save(admin1);
 		adminR.save(admin2);
 		adminR.save(admin3);
