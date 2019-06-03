@@ -25,7 +25,7 @@ public class UserResource {
 	private UserService serv;
 	
 	@CrossOrigin
-	@PreAuthorize("hasAnyRole('ADMIN')")//deixa listar todos apenas para administradores
+	//@PreAuthorize("hasAnyRole('ADMINISTRADOR')")//deixa listar todos apenas para administradores
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<User>> ListarTodos(){
 		List<User> lista = serv.findAll();

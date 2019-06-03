@@ -30,7 +30,7 @@ import br.senai.sc.security.JWTUtil;
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	private static final String[] PUBLIC_MATCHERS = {
-			"/users/**",
+			"/**",
 			"/h2-console/**"
 	};
 	
