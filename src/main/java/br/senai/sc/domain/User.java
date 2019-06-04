@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.persistence.CollectionTable;
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 //import java.util.HashSet;
 //import java.util.Set;
@@ -35,8 +36,10 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	@Column(unique=true, nullable=false)
 	private String email;
 	@JsonIgnore
+	@Column(nullable=false)
 	private String senha;
 	
 	private Date create_time = Calendar.getInstance().getTime();

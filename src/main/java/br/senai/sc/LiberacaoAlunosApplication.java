@@ -77,12 +77,12 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");// date format para data e hora.
 		SimpleDateFormat stf = new SimpleDateFormat("hh:mm");// date format para data e hora.
 
-		User user1 = new User(null, "teste", "testando", passwordEncoder.encode("123"), "995544", true);
+		User user1 = new User(null, "teste", "testando@gmail.com", passwordEncoder.encode("123"), "995544", true);
 		user1.addPerfil(Perfil.ADMINISTRADOR);
 		
-		Administrador admin1 = new Administrador(null, "Admin João da Silva", "joao@gmail.com", passwordEncoder.encode("12345"), "999887766", true);
-		Administrador admin2 = new Administrador(null, "Admin Manoel Heleno", "manuel@gmail.com", passwordEncoder.encode("12345"), "999887766", true);
-		Administrador admin3 = new Administrador(null, "Admin Helena Filha", "helena@gmail.com", passwordEncoder.encode("12345"), "999887766", false);
+		Administrador admin1 = new Administrador(null, "Admin João da Silva", "joao1", passwordEncoder.encode("12345"), "999887766", true);
+		Administrador admin2 = new Administrador(null, "Admin Manoel Heleno", "manuel1@gmail.com", passwordEncoder.encode("12345"), "999887766", true);
+		Administrador admin3 = new Administrador(null, "Admin Helena Filha", "helena1@gmail.com", passwordEncoder.encode("12345"), "999887766", false);
 		admin1.addPerfil(Perfil.ADMINISTRADOR);
 		admin2.addPerfil(Perfil.ADMINISTRADOR);
 		admin3.addPerfil(Perfil.ADMINISTRADOR);
@@ -90,13 +90,13 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		
 //		admin1.getTelefones().add("(48)999887766");
 
-		Guarda guarda1 = new Guarda(null, "Guarda João da Silva", "joao@gmail.com", passwordEncoder.encode("12345"), "999887766", true);
-		Guarda guarda2 = new Guarda(null, "Guarda Manoel Heleno", "manuel@gmail.com", passwordEncoder.encode("12345"), "999887766", true);
-		Guarda guarda3 = new Guarda(null, "Guarda Helena Filha", "helena@gmail.com", passwordEncoder.encode("12345"), "999887766", false);
+		Guarda guarda1 = new Guarda(null, "Guarda João da Silva", "joao2@gmail.com", passwordEncoder.encode("12345"), "999887766", true);
+		Guarda guarda2 = new Guarda(null, "Guarda Manoel Heleno", "manuel2@gmail.com", passwordEncoder.encode("12345"), "999887766", true);
+		Guarda guarda3 = new Guarda(null, "Guarda Helena Filha", "helena2@gmail.com", passwordEncoder.encode("12345"), "999887766", false);
 
-		Professor prof1 = new Professor(null, "Professor João da Silva", "joao@gmail.com", passwordEncoder.encode("12345"), "999887766", true);
-		Professor prof2 = new Professor(null, "Professor Manoel Heleno", "manuel@gmail.com", passwordEncoder.encode("12345"), "999887766", true);
-		Professor prof3 = new Professor(null, "Professor Helena Filha", "helena@gmail.com", passwordEncoder.encode("12345"), "999887766", false);
+		Professor prof1 = new Professor(null, "Professor João da Silva", "joao3@gmail.com", passwordEncoder.encode("12345"), "999887766", true);
+		Professor prof2 = new Professor(null, "Professor Manoel Heleno", "manuel3@gmail.com", passwordEncoder.encode("12345"), "999887766", true);
+		Professor prof3 = new Professor(null, "Professor Helena Filha", "helena3@gmail.com", passwordEncoder.encode("12345"), "999887766", false);
 		
 		
 		Turma turma1 = new Turma(null, "Desenvolvimento de Sistemas","3o","2019/01",Periodo.MATUTINO);
