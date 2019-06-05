@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.senai.sc.domain.Administrador;
+import br.senai.sc.domain.enums.Perfil;
 import br.senai.sc.services.AdministradorService;
 
 @RestController
@@ -38,6 +39,7 @@ public class AdministradorResource {
 	@CrossOrigin
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody Administrador obj){
+		obj.addPerfil(Perfil.ADMINISTRADOR);
 		serv.insert(obj);
 		return ResponseEntity.noContent().build();
 	}

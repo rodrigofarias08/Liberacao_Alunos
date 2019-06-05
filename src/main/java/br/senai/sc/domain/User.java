@@ -38,7 +38,7 @@ public class User implements Serializable{
 	private String nome;
 	@Column(unique=true, nullable=false)
 	private String email;
-	@JsonIgnore
+//	@JsonIgnore
 	@Column(nullable=false)
 	private String senha;
 	
@@ -82,10 +82,16 @@ public class User implements Serializable{
 //		this.telefones = telefones;
 //	}
 	
+	
+	
 	public Set<Perfil> getPerfis() {
 		return perfis.stream().map(p -> Perfil.toEnum(p)).collect(Collectors.toSet());
 	}
 	
+	public void setPerfis(Set<Integer> perfis) {
+		this.perfis = perfis;
+	}
+
 	public void addPerfil(Perfil perfil) {
 		perfis.add(perfil.getCodigo());
 	}
