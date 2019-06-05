@@ -65,6 +65,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		String token = jwtUtil.generateToken(username);
 		//Retorna o token no cabeçalho da resposta para o frontend
 		res.addHeader("Authorization", "Bearer " + token);
+		res.addHeader("access-control-expose-headers", "Authorization");
 	}
 
 	//Classe privata criada para retornar o erro correto de autenticação ERRO 401
