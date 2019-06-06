@@ -38,10 +38,10 @@ public class User implements Serializable{
 	private String nome;
 	@Column(unique=true, nullable=false)
 	private String email;
-//	@JsonIgnore
+	@JsonIgnore
 	@Column(nullable=false)
 	private String senha;
-	
+	@JsonIgnore
 	private Date create_time = Calendar.getInstance().getTime();
 	
 	@JsonIgnore
