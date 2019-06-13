@@ -39,6 +39,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	private static final String[] PUBLIC_MATCHERS_POST = {
 	};
+
+	private static final String[] PUBLIC_MATCHERS_DELETE = {
+	};
+
+	private static final String[] PUBLIC_MATCHERS_PUT = {
+	};
 	
 	@Autowired
     private Environment env;
@@ -63,6 +69,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers(PUBLIC_MATCHERS).permitAll()
 			.antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_GET).permitAll()
 			.antMatchers(HttpMethod.POST, PUBLIC_MATCHERS_POST).permitAll()
+			.antMatchers(HttpMethod.DELETE, PUBLIC_MATCHERS_DELETE).permitAll()
+			.antMatchers(HttpMethod.DELETE, PUBLIC_MATCHERS_PUT).permitAll()
 			.anyRequest().authenticated();
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
 		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));

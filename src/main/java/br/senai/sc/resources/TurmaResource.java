@@ -1,6 +1,8 @@
 package br.senai.sc.resources;
 
+
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,13 +43,14 @@ public class TurmaResource {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deletar(@PathVariable Integer id){
 		serv.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
-	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "{id}", method = RequestMethod.PUT)//, consumes = MediaType.APPLICATION_JSON_VALUE
 	public ResponseEntity<Void> update(@RequestBody Turma obj, @PathVariable Integer id){
 		obj.setId(id);
 		serv.update(obj);
