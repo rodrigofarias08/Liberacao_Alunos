@@ -29,7 +29,7 @@ public class Turma implements Serializable {
 	private String fase; 
 	private String ano_semestre;
 	
-	
+//	@JsonIgnoreProperties({"nome", "cpf", "create_time"})
 	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "TURMA_ALUNO",
