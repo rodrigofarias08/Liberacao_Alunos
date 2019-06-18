@@ -17,6 +17,7 @@ import br.senai.sc.domain.RegistroEntrada;
 import br.senai.sc.domain.RegistroSaida;
 import br.senai.sc.domain.Responsavel;
 import br.senai.sc.domain.Turma;
+import br.senai.sc.domain.TurmaAluno;
 import br.senai.sc.domain.User;
 import br.senai.sc.domain.enums.Perfil;
 import br.senai.sc.domain.enums.Periodo;
@@ -106,9 +107,11 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		Aluno aluno = new Aluno(null, "Marcio", "11112520909", null);
 		aluno.getTelefones().add("888776655");
 
-		turma1.getAlunos().add(aluno);
-		aluno.getTurmas().add(turma1);
-		aluno.getTurmas().add(dependencia);
+//		turma1.getAlunos().add(aluno);
+//		aluno.getTurmas().add(turma1);
+//		aluno.getTurmas().add(dependencia);
+		
+		TurmaAluno tural1 = new TurmaAluno(null, 1, 2);
 		
 		RegistroSaida regs1 = new RegistroSaida(null, "Obs", stf.parse("19:26"), sdf.parse("25/04/2019"), false, true,
 				false, false, false, false, true, true, admin1, aluno);

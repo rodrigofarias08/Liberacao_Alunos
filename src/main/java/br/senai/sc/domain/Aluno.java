@@ -44,9 +44,9 @@ public class Aluno implements Serializable{
 	private List<RegistroEntrada> registros_entradas = new ArrayList<RegistroEntrada>();
 	
 	
-	@JsonIgnore
-	@ManyToMany(mappedBy="alunos")
-	private List<Turma> turmas = new ArrayList<Turma>();
+//	@JsonIgnore
+//	@ManyToMany(mappedBy="alunos")
+//	private List<Turma> turmas = new ArrayList<Turma>();
 	
 	@JsonIgnore
 	@ElementCollection
@@ -76,16 +76,16 @@ public class Aluno implements Serializable{
 
 
 
-	public List<Turma> getTurmas() {
-		return turmas;
-	}
-
-
-
-
-	public void setTurmas(List<Turma> turmas) {
-		this.turmas = turmas;
-	}
+//	public List<Turma> getTurmas() {
+//		return turmas;
+//	}
+//
+//
+//
+//
+//	public void setTurmas(List<Turma> turmas) {
+//		this.turmas = turmas;
+//	}
 
 
 

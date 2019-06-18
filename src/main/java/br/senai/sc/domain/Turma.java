@@ -30,12 +30,12 @@ public class Turma implements Serializable {
 	private String ano_semestre;
 	
 //	@JsonIgnoreProperties({"nome", "cpf", "create_time"})
-	@JsonIgnore
-	@ManyToMany
-	@JoinTable(name = "TURMA_ALUNO",
-			joinColumns = @JoinColumn(name="turma_id"),
-			inverseJoinColumns = @JoinColumn(name="aluno_id"))
-	private List<Aluno> alunos = new ArrayList<Aluno>();
+//	@JsonIgnore
+//	@ManyToMany
+//	@JoinTable(name = "TURMA_ALUNO",
+//			joinColumns = @JoinColumn(name="turma_id"),
+//			inverseJoinColumns = @JoinColumn(name="aluno_id"))
+//	private List<Aluno> alunos = new ArrayList<Aluno>();
 	
 	
 	public Turma() {
@@ -53,13 +53,13 @@ public class Turma implements Serializable {
 	
 	
 
-	public List<Aluno> getAlunos() {
-		return alunos;
-	}
-
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
-	}
+//	public List<Aluno> getAlunos() {
+//		return alunos;
+//	}
+//
+//	public void setAlunos(List<Aluno> alunos) {
+//		this.alunos = alunos;
+//	}
 
 	public Integer getId() {
 		return id;
