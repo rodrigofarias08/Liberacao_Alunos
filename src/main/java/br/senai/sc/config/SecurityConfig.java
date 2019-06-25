@@ -30,8 +30,9 @@ import br.senai.sc.security.JWTUtil;
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	private static final String[] PUBLIC_MATCHERS = {
-			"/turmas/**",
-			"/h2-console/**"
+			"/h2-console/**",
+			"/users/**",
+			"/alunos/**"
 	};
 	
 	private static final String[] PUBLIC_MATCHERS_GET = {
@@ -70,7 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_GET).permitAll()
 			.antMatchers(HttpMethod.POST, PUBLIC_MATCHERS_POST).permitAll()
 			.antMatchers(HttpMethod.DELETE, PUBLIC_MATCHERS_DELETE).permitAll()
-			.antMatchers(HttpMethod.DELETE, PUBLIC_MATCHERS_PUT).permitAll()
+			.antMatchers(HttpMethod.PUT, PUBLIC_MATCHERS_PUT).permitAll()
 			.anyRequest().authenticated();
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
 		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
