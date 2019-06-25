@@ -33,6 +33,7 @@ public class Aluno implements Serializable{
 	@Lob
 	private byte[] foto;
 	
+	@JsonIgnore
 	private Date create_time;
 	
 	@JsonIgnore
