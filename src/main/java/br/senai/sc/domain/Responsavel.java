@@ -24,6 +24,7 @@ public class Responsavel  implements Serializable {
 	private Integer id;
 	private String nome;
 	private String email;
+	private String cpf;
 	
 	@JsonIgnore
 	@ManyToOne
@@ -38,11 +39,12 @@ public class Responsavel  implements Serializable {
 		super();
 	}
 
-	public Responsavel(Integer id, String nome, String email, Aluno aluno) {
+	public Responsavel(Integer id, String nome, String email, String cpf, Aluno aluno) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+		this.cpf = cpf;
 		this.aluno = aluno;
 	}
 
@@ -52,6 +54,14 @@ public class Responsavel  implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getNome() {

@@ -127,7 +127,7 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		prof1.getRegistros_entradas().add(regE1);
 		regE1.getProfessores().add(prof1);
 		
-		Responsavel respon1 = new Responsavel(null, "pai", "pai@hotmail.com", aluno);
+		Responsavel respon1 = new Responsavel(null, "pai", "pai@hotmail.com", "1234567894", aluno);
 		respon1.getTelefones().add("999999999");
 		aluno.getResponsaveis().add(respon1);
 
