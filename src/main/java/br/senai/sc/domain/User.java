@@ -43,7 +43,7 @@ public class User implements Serializable{
 	@JsonIgnore
 	private Date create_time = Calendar.getInstance().getTime();
 	
-	@JsonIgnore
+	//@JsonIgnore
 	private boolean ativo;
 	
 //	@JsonIgnore
