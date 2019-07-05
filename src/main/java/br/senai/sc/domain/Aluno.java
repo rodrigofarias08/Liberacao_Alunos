@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -44,10 +46,17 @@ public class Aluno implements Serializable{
 	@OneToMany(mappedBy = "aluno")
 	private List<RegistroEntrada> registros_entradas = new ArrayList<RegistroEntrada>();
 	
-	
+
+//	@ManyToMany
+//	@JoinTable(name = "TURMA_ALUNO",
+//			joinColumns = @JoinColumn(name="turma_id"),
+//			inverseJoinColumns = @JoinColumn(name="aluno_id"))
 //	@JsonIgnore
-//	@ManyToMany(mappedBy="alunos")
-//	private List<Turma> turmas = new ArrayList<Turma>();
+	@ManyToMany
+	@JoinTable(name = "ALUNO_TURMA",
+	joinColumns = @JoinColumn(name="aluno_id"),
+	inverseJoinColumns = @JoinColumn(name="turma_id"))
+	private List<Turma> turmas = new ArrayList<Turma>();
 	
 	@JsonIgnore
 	@ElementCollection
@@ -77,16 +86,16 @@ public class Aluno implements Serializable{
 
 
 
-//	public List<Turma> getTurmas() {
-//		return turmas;
-//	}
-//
-//
-//
-//
-//	public void setTurmas(List<Turma> turmas) {
-//		this.turmas = turmas;
-//	}
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+
+
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
+	}
 
 
 

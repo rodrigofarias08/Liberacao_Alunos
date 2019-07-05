@@ -17,7 +17,6 @@ import br.senai.sc.domain.RegistroEntrada;
 import br.senai.sc.domain.RegistroSaida;
 import br.senai.sc.domain.Responsavel;
 import br.senai.sc.domain.Turma;
-import br.senai.sc.domain.TurmaAluno;
 import br.senai.sc.domain.User;
 import br.senai.sc.domain.enums.Perfil;
 import br.senai.sc.domain.enums.Periodo;
@@ -101,17 +100,18 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		
 		
 		Turma turma1 = new Turma(null, "Desenvolvimento de Sistemas","3o","2019/01",Periodo.MATUTINO);
-		Turma dependencia = new Turma(null, "Lógica","2o","2019/01",Periodo.VESPERTINO);
+		Turma turma2 = new Turma(null, "Lógica","2o","2019/01",Periodo.VESPERTINO);
 				
 		
 		Aluno aluno = new Aluno(null, "Marcio", "11112520909", null);
+		Aluno aluno2 = new Aluno(null, "Bruno", "1115555-cpf", null);
 		aluno.getTelefones().add("888776655");
 
-//		turma1.getAlunos().add(aluno);
-//		aluno.getTurmas().add(turma1);
-//		aluno.getTurmas().add(dependencia);
+		turma1.getAlunos().add(aluno);
+		aluno.getTurmas().add(turma1);
+		aluno.getTurmas().add(turma2);
 		
-		TurmaAluno tural1 = new TurmaAluno(null, 1, 2);
+		
 		
 		RegistroSaida regs1 = new RegistroSaida(null, "Obs", stf.parse("19:26"), sdf.parse("25/04/2019"), false, true,
 				false, false, false, false, true, true, admin1, aluno);
@@ -145,10 +145,11 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		profR.save(prof2);
 		profR.save(prof3);
 
-		alunoR.save(aluno);
 		turmaR.save(turma1);
-		turmaR.save(dependencia);
-
+		turmaR.save(turma2);
+		alunoR.save(aluno);
+		alunoR.save(aluno2);
+		
 		regEntradaR.save(regE1);
 		regSaidaR.save(regs1);
 		
