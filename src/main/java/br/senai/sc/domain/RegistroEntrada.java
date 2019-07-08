@@ -38,19 +38,19 @@ public class RegistroEntrada implements Serializable{
 	private Boolean notificar_prof;
 	//private String msg_prof;
 	
-	private Date create_time;
+	private Date create_time = Calendar.getInstance().getTime();
 	
-	@JsonIgnore
+//	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "aluno_id")
 	private Aluno aluno;
 
-	@JsonIgnore
+//	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "administrador_id")
 	private Administrador administrador;
 
-	@JsonIgnore
+//	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "PROFESSOR_NOTIFICADO_ENTRADA",
 				joinColumns = @JoinColumn(name = "registro_entrada_id"),
@@ -76,7 +76,6 @@ public class RegistroEntrada implements Serializable{
 		this.notificar_resp = notificar_resp;
 		this.notificar_prof = notificar_prof;
 		this.administrador = administrador;
-		this.create_time = Calendar.getInstance().getTime();
 		this.aluno = aluno;
 		
 	}
