@@ -26,7 +26,7 @@ public class Responsavel  implements Serializable {
 	private String email;
 	private String cpf;
 	
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name = "aluno_id")
 	private Aluno aluno;
