@@ -106,10 +106,12 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		Aluno aluno = new Aluno(null, "Marcio", "11112520909", null);
 		Aluno aluno2 = new Aluno(null, "Bruno", "1115555-cpf", null);
 		aluno.getTelefones().add("888776655");
-
+		
 		turma1.getAlunos().add(aluno);
+		turma2.getAlunos().add(aluno2);
 		aluno.getTurmas().add(turma1);
 		aluno.getTurmas().add(turma2);
+		aluno2.getTurmas().add(turma2);
 		
 		
 		
@@ -120,7 +122,7 @@ public class LiberacaoAlunosApplication implements CommandLineRunner {
 		regs1.getProfessores().add(prof1);
 		prof1.getRegistros_saidas().add(regs1);
 
-		RegistroEntrada regE1 = new RegistroEntrada(null, "obs", stf.parse("20:44"), sdf.parse("25/04/2019"), false,
+		RegistroEntrada regE1 = new RegistroEntrada(null, "obs", "20:44", sdf.parse("25/04/2019"), false,
 				true, false, false, false, false, true, true, admin1, aluno);
 		admin1.getRegistros_entradas().add(regE1);
 		aluno.getRegistros_entradas().add(regE1);

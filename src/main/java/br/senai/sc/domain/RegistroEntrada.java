@@ -15,7 +15,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class RegistroEntrada implements Serializable{
@@ -25,7 +24,8 @@ public class RegistroEntrada implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String observacao;
-	private Date hora_entrada;
+	private String hora_entrada;
+//	private Date hora_entrada;
 	private Date repetir_ate;
 	private Boolean segunda;
 	private Boolean terca;
@@ -60,12 +60,13 @@ public class RegistroEntrada implements Serializable{
 	public RegistroEntrada() {
 	}
 
-	public RegistroEntrada(Integer id, String observacao, Date hora_entrada, Date repetir_ate, Boolean segunda,
+	public RegistroEntrada(Integer id, String observacao, String hora_entrada, Date repetir_ate, Boolean segunda,
 			Boolean terca, Boolean quarta, Boolean quinta, Boolean sexta, Boolean sabado, Boolean notificar_resp, Boolean notificar_prof, Administrador administrador,Aluno aluno) {
 		super();
 		this.id = id;
 		this.observacao = observacao;
 		this.hora_entrada = hora_entrada;
+//		this.hora_entrada = hora_entrada;
 		this.repetir_ate = repetir_ate;
 		this.segunda = segunda;
 		this.terca = terca;
@@ -95,13 +96,23 @@ public class RegistroEntrada implements Serializable{
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
+	
+	
 
-	public Date getHora_entrada() {
+//	public Date getHora_entrada() {
+//		return hora_entrada;
+//	}
+//
+//	public void setHora_entrada(Date hora_saida) {
+//		this.hora_entrada = hora_saida;
+//	}
+
+	public String getHora_entrada() {
 		return hora_entrada;
 	}
 
-	public void setHora_entrada(Date hora_saida) {
-		this.hora_entrada = hora_saida;
+	public void setHora_entrada(String hora_entrada) {
+		this.hora_entrada = hora_entrada;
 	}
 
 	public Date getRepetir_ate() {
